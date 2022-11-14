@@ -1,3 +1,4 @@
+//Below is a yaml configuration of the documentation, swagger uses this to build the documentation page
 /**
  * @openapi
  * /:

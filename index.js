@@ -3,6 +3,7 @@ const app = require("./src/server"),
   swaggerUi = require("swagger-ui-express"),
   port = require("./config").port;
 
+//description of API documentation
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -20,6 +21,7 @@ const options = {
         email: "andyb@email.com",
       },
     },
+    //main endpoint locations in API
     servers: [
       {
         url: "http://localhost:5001/user",
@@ -29,11 +31,14 @@ const options = {
       },
     ],
   },
+  //location of yaml information for endpoints
   apis: ["./src/User/routes.js", "./src/Content/routes.js"],
 };
 
+//adding the options to the JSDoc set up
 const specs = swaggerJsdoc(options);
 
+//creating an endpoint that serves the documentation
 app.use(
   "/api-docs",
   swaggerUi.serve,
